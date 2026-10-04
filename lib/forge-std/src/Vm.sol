@@ -9,40 +9,6 @@ pragma solidity >=0.8.13 <0.9.0;
 interface VmSafe {
     /// A modification applied to either `msg.sender` or `tx.origin`. Returned by `readCallers`.
     enum CallerMode {
-        // No caller modification is currently active.
-        None,
-        // A one time broadcast triggered by a `vm.broadcast()` call is currently active.
-        Broadcast,
-        // A recurrent broadcast triggered by a `vm.startBroadcast()` call is currently active.
-        RecurrentBroadcast,
-        // A one time prank triggered by a `vm.prank()` call is currently active.
-        Prank,
-        // A recurrent prank triggered by a `vm.startPrank()` call is currently active.
-        RecurrentPrank
+        None
     }
-
-    /// The kind of account access that occurred.
-    enum AccountAccessKind {
-        // The account was called.
-        Call,
-        // The account was called via delegatecall.
-        DelegateCall,
-        // The account was called via callcode.
-        CallCode,
-        // The account was called via staticcall.
-        StaticCall,
-        // The account was created.
-        Create,
-        // The account was selfdestructed.
-        SelfDestruct,
-        // Synthetic access indicating the current context has resumed after a previous sub-context (AccountAccess).
-        Resume,
-        // The account's balance was read.
-        Balance,
-        // The account's codesize was read.
-        Extcodesize,
-        // The account's codehash was read.
-        Extcodehash,
-        // The account's code was copied.
-        Extcodecopy
-    }
+}
